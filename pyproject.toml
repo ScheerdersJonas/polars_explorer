@@ -7,8 +7,25 @@ dependencies = [
     "polars>=1.42.0",
 ]
 
+[build-system]
+requires = ["uv_build>=0.7.0,<0.8.0"]
+build-backend = "uv_build"
+
+[tool.uv]
+required-version = ">=0.7.0"
+
+[tool.uv.build-backend]
+module-name = "polars_csv_explorer"
+
+[project.scripts]
+polars-explorer = "polars_csv_explorer.__main__:main"
+
+[tool.pytest.ini_options]
+addopts = "--tb=short"
+# exit code 5 (no tests collected) is treated as success
+empty_parameter_set_mark = "xfail"
+
 [dependency-groups]
 dev = [
-    "pytest>=9.1.1",
     "ruff>=0.15.19",
 ]

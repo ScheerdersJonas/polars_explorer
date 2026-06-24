@@ -15,10 +15,10 @@ build-backend = "uv_build"
 required-version = ">=0.7.0"
 
 [tool.uv.build-backend]
-module-name = "explore"
+module-name = "polars_csv_explorer"
 
 [project.scripts]
-polars-explorer = "main:main"
+polars-explorer = "polars_csv_explorer.__main__:main"
 
 [tool.pytest.ini_options]
 addopts = "--tb=short"

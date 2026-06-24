@@ -7,6 +7,9 @@ dependencies = [
     "polars>=1.42.0",
 ]
 
+[tool.setuptools]
+py-modules = ["main", "explore"]
+
 [dependency-groups]
 dev = [
     "pytest>=9.1.1",

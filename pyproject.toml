@@ -7,8 +7,18 @@ dependencies = [
     "polars>=1.42.0",
 ]
 
-[tool.setuptools]
-py-modules = ["main", "explore"]
+[build-system]
+requires = ["uv_build>=0.7.0,<0.8.0"]
+build-backend = "uv_build"
+
+[tool.uv]
+required-version = ">=0.7.0"
+
+[tool.uv.build-backend]
+module-name = "explore"
+
+[project.scripts]
+polars-explorer = "main:main"
 
 [dependency-groups]
 dev = [

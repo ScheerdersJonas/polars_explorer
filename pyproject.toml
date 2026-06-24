@@ -20,6 +20,11 @@ module-name = "explore"
 [project.scripts]
 polars-explorer = "main:main"
 
+[tool.pytest.ini_options]
+addopts = "--tb=short"
+# exit code 5 (no tests collected) is treated as success
+empty_parameter_set_mark = "xfail"
+
 [dependency-groups]
 dev = [
     "pytest>=9.1.1",

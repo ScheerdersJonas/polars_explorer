@@ -10,9 +10,10 @@ from pathlib import Path
 # ---------------------------------------------------------------------------
 # Configuration – change these paths as needed
 # ---------------------------------------------------------------------------
-INPUT_CSV  = Path("data/sample.csv")       # path to your CSV file (or glob)
-OUTPUT_DIR = Path("output")                # directory to write results
+INPUT_CSV = Path("data/sample.csv")  # path to your CSV file (or glob)
+OUTPUT_DIR = Path("output")  # directory to write results
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+
 
 # ---------------------------------------------------------------------------
 # 1. Load
@@ -112,12 +113,14 @@ if __name__ == "__main__":
     # --- create a tiny synthetic CSV if no real file exists yet ---
     if not INPUT_CSV.exists():
         INPUT_CSV.parent.mkdir(parents=True, exist_ok=True)
-        sample = pl.DataFrame({
-            "id":       [1, 2, 3, 4, 5],
-            "name":     ["Alice", "Bob", "Carol", "Dave", "Eve"],
-            "score":    [88.5, 72.0, 95.3, None, 61.8],
-            "category": ["A", "B", "A", "C", "B"],
-        })
+        sample = pl.DataFrame(
+            {
+                "id": [1, 2, 3, 4, 5],
+                "name": ["Alice", "Bob", "Carol", "Dave", "Eve"],
+                "score": [88.5, 72.0, 95.3, None, 61.8],
+                "category": ["A", "B", "A", "C", "B"],
+            }
+        )
         sample.write_csv(INPUT_CSV)
         print(f"Created sample CSV at {INPUT_CSV}\n")
 
